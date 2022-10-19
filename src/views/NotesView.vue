@@ -31,6 +31,7 @@ import { ref } from "vue";
 import Note from "@/components/notes/Note.vue";
 import CreateEditNote from "@/components/notes/CreateEditNote.vue";
 import { useNotesStore } from "../stores/notesStore";
+import { useCharactersWatch } from "@/composables/useCharactersWatch";
 import { storeToRefs } from "pinia";
 
 const createEditNote = ref(null);
@@ -52,4 +53,6 @@ const deleteNote = (id) => {
   const objWithIdIndex = notes.value.findIndex((obj) => obj.id === id);
   notes.value.splice(objWithIdIndex, 1);
 };
+
+useCharactersWatch(newNote);
 </script>

@@ -10,6 +10,8 @@
           v-model="value"
           class="textarea"
           :placeholder="placeholder"
+          v-autofocus
+          maxlength="100"
           ref="textareaNote"
         />
       </div>
@@ -25,6 +27,7 @@
 
 <script setup>
 import { useVModel } from "@vueuse/core";
+import { vAutofocus } from "@/directives/vAutofocus";
 import { ref } from "vue";
 
 const emit = defineEmits(["update:modelValue"]);

@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import Note from "@/components/notes/Note.vue";
 import CreateEditNote from "@/components/notes/CreateEditNote.vue";
 import { useNotesStore } from "../stores/notesStore";
@@ -55,4 +55,8 @@ const deleteNote = (id) => {
 };
 
 useCharactersWatch(newNote);
+
+onMounted(() => {
+  store.getNotes();
+});
 </script>
